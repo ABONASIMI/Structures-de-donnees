@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="850" height="620">
+<rect width="100%" height="100%" fill="white"/>
+<text x="100" y="55" font-size="20">Algorithme O(n²)</text>
+<path d="M100,75 V260 H780" fill="none" stroke="black"/>
+<circle cx="106.8" cy="259.9681893735313" r="4" fill="red"/>
+<text x="106.8" y="278" font-size="11" text-anchor="middle">100</text>
+<circle cx="134.0" cy="259.2426041316968" r="4" fill="red"/>
+<text x="134.0" y="278" font-size="11" text-anchor="middle">500</text>
+<circle cx="168.0" cy="257.0249490293051" r="4" fill="red"/>
+<text x="168.0" y="278" font-size="11" text-anchor="middle">1000</text>
+<circle cx="440.0" cy="207.73362592013362" r="4" fill="red"/>
+<text x="440.0" y="278" font-size="11" text-anchor="middle">5000</text>
+<circle cx="780.0" cy="75.0" r="4" fill="red"/>
+<text x="780.0" y="278" font-size="11" text-anchor="middle">10000</text>
+<polyline points="106.8,260.0 134.0,259.2 168.0,257.0 440.0,207.7 780.0,75.0" fill="none" stroke="red" stroke-width="2"/>
+<text x="10" y="85" font-size="12">0.122129 s</text>
+<text x="400" y="300" font-size="13">Taille du tableau (n)</text>
+<text x="100" y="325" font-size="20">Algorithme O(n)</text>
+<path d="M100,345 V530 H780" fill="none" stroke="black"/>
+<circle cx="106.8" cy="524.3939393939394" r="4" fill="blue"/>
+<text x="106.8" y="548" font-size="11" text-anchor="middle">100</text>
+<circle cx="134.0" cy="524.3939393939394" r="4" fill="blue"/>
+<text x="134.0" y="548" font-size="11" text-anchor="middle">500</text>
+<circle cx="168.0" cy="518.7878787878788" r="4" fill="blue"/>
+<text x="168.0" y="548" font-size="11" text-anchor="middle">1000</text>
+<circle cx="440.0" cy="457.1212121212121" r="4" fill="blue"/>
+<text x="440.0" y="548" font-size="11" text-anchor="middle">5000</text>
+<circle cx="780.0" cy="345.0" r="4" fill="blue"/>
+<text x="780.0" y="548" font-size="11" text-anchor="middle">10000</text>
+<polyline points="106.8,524.4 134.0,524.4 168.0,518.8 440.0,457.1 780.0,345.0" fill="none" stroke="blue" stroke-width="2"/>
+<text x="10" y="355" font-size="12">0.000033 s</text>
+<text x="400" y="570" font-size="13">Taille du tableau (n)</text>
+</svg>
