@@ -19,7 +19,7 @@ BiblioLC	*charger_n_entrees(char *nomfic, int n)
     LivreLC *tmp= NULL;
     while (i < n && succ == 1)
     {
-        if (!fscanf(f, "%d %255s %255s", &num, titre, auteur) == 3)
+        if (!(fscanf(f, "%d %255s %255s", &num, titre, auteur) == 3))
             succ = 0;
         tmp = creer_livre(num, titre, auteur);
         if (!tmp)
