@@ -2,80 +2,86 @@
 
 BiblioLC	*charger_n_entrees(char *nomfic, int n)
 {
-    BiblioLC *b = creer_biblio();
-    if (!b)
-        return NULL;
-    FILE *f = fopen(nomfic, "r");
-    if (!f){
-        free(b);
-        return NULL;
-    }
-    int i = 0;
-    int num;
-    char titre[256];
-    char auteur[256];
-    int succ = 1;
-    LivreLC *l = NULL;
-    LivreLC *tmp= NULL;
-    while (i < n && succ == 1)
-    {
-        if (!(fscanf(f, "%d %255s %255s", &num, titre, auteur) == 3)){
-            succ = 0;
-            break;
-        }
-        tmp = creer_livre(num, titre, auteur);
-        if (!tmp)
-        {
-            liberer_biblio(b);
-            fclose(f);
-            return NULL;
-        }
-        else if (!l)
-        {
-            l = tmp;
-            b->l = l;
-        }
-        else {
-            l->suiv = tmp;
-            l = l->suiv;
-            l->suiv = NULL;
-        }
-        i++;
-    }
-    fclose(f);
-    return b;
+	BiblioLC	*b;
+	FILE		*f;
+	int			i;
+	int			num;
+	char		titre[256];
+	char		auteur[256];
+	int			succ;
+	LivreLC		*l;
+	LivreLC		*tmp;
+
+	b = creer_biblio();
+	if (!b)
+		return (NULL);
+	f = fopen(nomfic, "r");
+	if (!f)
+	{
+		free(b);
+		return (NULL);
+	}
+	i = 0;
+	succ = 1;
+	l = NULL;
+	tmp = NULL;
+	while (i < n && succ == 1)
+	{
+		if (!(fscanf(f, "%d %255s %255s", &num, titre, auteur) == 3))
+		{
+			succ = 0;
+			break ;
+		}
+		tmp = creer_livre(num, titre, auteur);
+		if (!tmp)
+		{
+			liberer_biblio(b);
+			fclose(f);
+			return (NULL);
+		}
+		else if (!l)
+		{
+			l = tmp;
+			b->l = l;
+		}
+		else
+		{
+			l->suiv = tmp;
+			l = l->suiv;
+			l->suiv = NULL;
+		}
+		i++;
+	}
+	fclose(f);
+	return (b);
 }
 
-
-void enregistrer_biblio(BiblioLC *b, char *nomfic)
+void	enregistrer_biblio(BiblioLC *b, char *nomfic)
 {
-    if (!b)
-        return ;
-    FILE *f = fopen(nomfic, "w");
-    if (!f)
-        return ;
-    LivreLC *l = b->l;
-    while (l)
-    {
-        fprintf(f, "%d %s %s\n", l->num, l->titre, l->auteur);
-        l = l->suiv;
-    }
-    fclose(f);
+	FILE	*f;
+	LivreLC	*l;
+
+	if (!b)
+		return ;
+	f = fopen(nomfic, "w");
+	if (!f)
+		return ;
+	l = b->l;
+	while (l)
+	{
+		fprintf(f, "%d %s %s\n", l->num, l->titre, l->auteur);
+		l = l->suiv;
+	}
+	fclose(f);
 }
-
-
-
-
-
-
 
 /*
 **31/10/2026**
 
-This is the code I wrote when I misunderstood the question and thought 
-I had to read from a string instead of a file It's all part of my programming 
+This is the code I wrote when I misunderstood the question and thought
+I had to read from a string instead of a file It's all part of my programming
 journey. These mistakes help me pay more attention and improve my code
-I really enjoyed writing this code and developing my own algorithm That's 
+I really enjoyed writing this code and developing my own algorithm That's
 why I don't want to delete it. I want to keep it here as a memorable part of my journey.
 
 {
