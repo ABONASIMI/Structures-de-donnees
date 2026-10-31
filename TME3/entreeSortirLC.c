@@ -19,8 +19,10 @@ BiblioLC	*charger_n_entrees(char *nomfic, int n)
     LivreLC *tmp= NULL;
     while (i < n && succ == 1)
     {
-        if (!(fscanf(f, "%d %255s %255s", &num, titre, auteur) == 3))
+        if (!(fscanf(f, "%d %255s %255s", &num, titre, auteur) == 3)){
             succ = 0;
+            break;
+        }
         tmp = creer_livre(num, titre, auteur);
         if (!tmp)
         {
@@ -43,6 +45,25 @@ BiblioLC	*charger_n_entrees(char *nomfic, int n)
     fclose(f);
     return b;
 }
+
+
+void enregistrer_biblio(BiblioLC *b, char *nomfic)
+{
+    if (!b)
+        return ;
+    FILE *f = fopen(nomfic, "w");
+    if (!f)
+        return ;
+    LivreLC *l = b->l;
+    while (l)
+    {
+        fprintf(f, "%d %s %s\n", l->num, l->titre, l->auteur);
+        l = l->suiv;
+    }
+    fclose(f);
+}
+
+
 
 
 
