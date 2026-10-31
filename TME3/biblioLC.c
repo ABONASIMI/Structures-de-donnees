@@ -1,4 +1,4 @@
-#include "BiblioLC.h"
+#include "biblioLC.h"
 
 LivreLC	*creer_livre(int num, char *titre, char *auteur)
 {
